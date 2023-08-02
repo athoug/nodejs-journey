@@ -15,3 +15,19 @@ const fs = require('fs');
 // 3.check your work by opening the file and viewing the appended text
 
 fs.appendFileSync('notes.txt', '\nI am working on learning node js');
+
+const challenges = `challenge 1- append a message to notes.txt
+  1. use appendFileSync to append to the file
+  2.run the script
+  3.check your work by opening the file and viewing the appended text
+  
+---------------------------------------------------
+
+challenge 2 - define and use a function in a new file
+  1. create a new file called notes.js
+  2. create getNotes function that returns "your notes ...."
+  3. export getNotes function
+  4. from app.js load in and call the function printing the message in the console
+  `;
+
+fs.appendFileSync('challenges.txt', challenges);

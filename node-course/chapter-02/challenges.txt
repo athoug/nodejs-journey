@@ -10,4 +10,15 @@ challenge 2 - define and use a function in a new file
   2. create getNotes function that returns "your notes ...."
   3. export getNotes function
   4. from app.js load in and call the function printing the message in the console
+
+---------------------------------------------------
+
+challenge 3 - use the chalk library in your project (npm package)
+  1. install chalk version 2.4.1
+  2. load chalk into app.js
+  3. use it to print the string "success!" to the console in green
+  4. test your work
+
+  bonus: use docs to mess around with other styles. make text bold and inverse
+
   

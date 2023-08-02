@@ -8,7 +8,7 @@ notes.getNotes();
 console.log(validator.isEmail('a@email.com'));
 console.log(validator.isURL('a.com'));
 
-console.log(chalk.green('Success!'));
+console.log(chalk.green.inverse.bold('Success!'));
 console.log(
 	chalk.rgb(15, 100, 204).inverse.bold('look at me all bold and stuff')
 );

@@ -19,6 +19,9 @@ const addNote = (title, body) => {
 
 	// safety check: check if the title exists
 	const duplicateNote = notes.find((note) => note.title === title);
+
+	debugger;
+
 	if (!duplicateNote) {
 		// 2. add the new note to the array
 		notes.push({ title, body });

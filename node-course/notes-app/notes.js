@@ -10,14 +10,11 @@ const addNote = (title, body) => {
 	const notes = loadNotes();
 
 	// safety check: check if the title exists
-	const duplicateNotes = notes.filter((note) => {
-		return note.title === title;
-	});
+	const duplicateNotes = notes.filter((note) => note.title === title);
 
 	if (duplicateNotes.length == 0) {
 		// 2. add the new note to the array
 		notes.push({ title, body });
-
 		// 3. save the note
 		saveNotes(notes);
 		console.log(chalk.green.bold('Noted added'));
@@ -28,11 +25,9 @@ const addNote = (title, body) => {
 
 const removeNote = (title) => {
 	const notes = loadNotes();
-	const notesToKeep = notes.filter((note) => {
-		return note.title !== title;
-	});
+	const notesToKeep = notes.filter((note) => note.title !== title);
 
-	if (notesToKeep.length !== notes.length) {
+	if (notesToKeep.length < notes.length) {
 		saveNotes(notesToKeep);
 		console.log(chalk.inverse.green('Note removed!'));
 	} else {

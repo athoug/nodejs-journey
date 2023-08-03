@@ -19,8 +19,31 @@ challenge 3 - work with json and teh file system
   1. load and parse the json data
   2. change the name and age property using your info
   3. stringify the changed object and overwrite the original data
-  4. test your work by viewing data in teh json file
+  4. test your work by viewing data in the json file
 
+---------------------------------------------------
+
+challenge 4 - setup command and options function
+  1. setup the remove command to take a required "--title" option
+  2. create and export a removeNote function from notes.js
+  3. call removeNote in remove command handler
+  4. have the removeNote log the title of the note to be removed
+  5. test your work using: node app.js remove --title="some title
+
+---------------------------------------------------
+
+challenge 5 - wire up removeNotes
+  1. load existing notes
+  2. use array filter method to remove hte matching notes (if any)
+  3. save the newly created array
+  4. test your work with a title that exists and a title that doesn't 
+
+---------------------------------------------------
+
+challenge 6- use chalk to provide useful logs for remove
+  1. if a note is removed, print "Note removed!" with a green background
+  2. if no note is removed, print "No note found!" with a red background
+  
 
   `;
 

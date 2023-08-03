@@ -44,7 +44,14 @@ challenge 6- use chalk to provide useful logs for remove
   1. if a note is removed, print "Note removed!" with a green background
   2. if no note is removed, print "No note found!" with a red background
   
+---------------------------------------------------
 
+challenge 7- wire up the list command
+  1. create and export listNotes from notes.js
+    - "your notes " using chalk 
+    - print note title for each note
+  2. call listNote from command handler
+  3. test your work 
   `;
 
 fs.appendFileSync('challenges.txt', challenges);

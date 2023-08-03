@@ -7,11 +7,11 @@ const challenges = `challenge 1- add two new commands
   
 ---------------------------------------------------
 
-challenge 2 - define and use a function in a new file
-  1. create a new file called notes.js
-  2. create getNotes function that returns "your notes ...."
-  3. export getNotes function
-  4. from app.js load in and call the function printing the message in the console
+challenge 2 - add an option to yargs
+  1. setup a body option for the add command
+  2. configure a description, make it required, and for it to be a string
+  3. log the body in the handler function 
+  4. test your code
 
 ---------------------------------------------------
 

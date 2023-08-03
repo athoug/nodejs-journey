@@ -1,9 +1,47 @@
-console.log('notes.js');
+const fs = require('fs');
 
 const getNotes = () => {
 	console.log('your notes....');
 };
 
+const addNote = (title, body) => {
+	// 1. load in the notes
+	const notes = loadNotes();
+
+	// safety check: check if the title exists
+	const duplicateNotes = notes.filter((note) => {
+		return note.title === title;
+	});
+
+	if (duplicateNotes.length == 0) {
+		// 2. add the new note to the array
+		notes.push({ title, body });
+
+		// 3. save the note
+		saveNotes(notes);
+		console.log('note created ✍🏼');
+	} else {
+		console.log('Note title taken');
+	}
+};
+
+const saveNotes = (notes) => {
+	const dataJSON = JSON.stringify(notes);
+	fs.writeFileSync('notes.json', dataJSON);
+};
+
+// load notes, if it doesn't exist return an empty array
+const loadNotes = () => {
+	try {
+		const dataBuffer = fs.readFileSync('notes.json');
+		const dataJson = dataBuffer.toString();
+		return JSON.parse(dataJson);
+	} catch (e) {
+		return [];
+	}
+};
+
 module.exports = {
 	getNotes,
+	addNote,
 };

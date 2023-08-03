@@ -15,13 +15,12 @@ challenge 2 - add an option to yargs
 
 ---------------------------------------------------
 
-challenge 3 - use the chalk library in your project (npm package)
-  1. install chalk
-  2. load chalk into app.js
-  3. use it to print the string "success!" to the console in green
-  4. test your work
+challenge 3 - work with json and teh file system
+  1. load and parse the json data
+  2. change the name and age property using your info
+  3. stringify the changed object and overwrite the original data
+  4. test your work by viewing data in teh json file
 
-  bonus: use docs to mess around with other styles. make text bold and inverse
 
   `;
 

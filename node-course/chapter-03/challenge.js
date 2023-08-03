@@ -52,6 +52,16 @@ challenge 7- wire up the list command
     - print note title for each note
   2. call listNote from command handler
   3. test your work 
+
+---------------------------------------------------
+
+challenge 8- wire up the read command
+  1. create and export readNote from notes.js
+    - search for note by title
+    - find note and print title (styled) and body plain
+    - no note found? print error in red
+  2. call the command handler call the function
+  3. test your work 
   `;
 
 fs.appendFileSync('challenges.txt', challenges);

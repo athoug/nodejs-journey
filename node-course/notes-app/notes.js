@@ -1,8 +1,16 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const getNotes = () => {
-	console.log('your notes....');
+const getNotes = (title) => {
+	const notes = loadNotes();
+	const note = notes.find((note) => note.title === title);
+
+	if (note) {
+		console.log(chalk.inverse.blue('Title: ' + note.title));
+		console.log(chalk.blue('body: ' + note.body));
+	} else {
+		console.log(chalk.bold.red('Error: the node does not exist'));
+	}
 };
 
 const addNote = (title, body) => {
@@ -10,9 +18,8 @@ const addNote = (title, body) => {
 	const notes = loadNotes();
 
 	// safety check: check if the title exists
-	const duplicateNotes = notes.filter((note) => note.title === title);
-
-	if (duplicateNotes.length == 0) {
+	const duplicateNote = notes.find((note) => note.title === title);
+	if (!duplicateNote) {
 		// 2. add the new note to the array
 		notes.push({ title, body });
 		// 3. save the note

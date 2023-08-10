@@ -12,11 +12,17 @@ const forecast = (lat, lng, callback) => {
 			const { temperature, weather_descriptions, feelslike } =
 				response.body.current;
 
-			callback(undefined, {
-				temp: temperature,
-				desc: weather_descriptions,
-				feel: feelslike,
-			});
+			// data = {
+			// 	temp: temperature,
+			// 	desc: weather_descriptions,
+			// 	feel: feelslike,
+			// };
+			callback(
+				undefined,
+				`It is currently ${temperature} degrees out, but it feels like ${feelslike}. It is ${[
+					...weather_descriptions,
+				]} out there today`
+			);
 		}
 	});
 };

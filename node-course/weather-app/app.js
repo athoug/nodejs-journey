@@ -6,12 +6,10 @@ const place = process.argv.slice(2).join(' ');
 if (!place) {
 	console.log('Please provide a location.');
 } else {
-	geocode(place, (error, data) => {
+	geocode(place, (error, { lat, lng, location } = {}) => {
 		if (error) {
 			return console.log('Error', error);
 		}
-
-		const { lat, lng, location } = data;
 
 		forecast(lat, lng, (error, data) => {
 			if (error) {

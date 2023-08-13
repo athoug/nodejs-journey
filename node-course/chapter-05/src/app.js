@@ -1,31 +1,21 @@
+const path = require('path');
 const express = require('express');
-const port = 3000;
 
 const app = express();
+const port = 3000;
+const publicDirectory = path.join(__dirname, '../public');
+
+// a single line to serve the directory, we add it after initiating express
+app.use(express.static(publicDirectory)); // this method is a way to customize our server
+
+console.log(__dirname); // the path to my directory the file lives in
+console.log(__filename); // the path to the file name
+console.log(path.join(__dirname, '../public'));
 
 // app.com
 // this is called the root url
 app.get('/', (req, res) => {
 	res.send('<h1>Weather ⛅️</h1>');
-});
-
-// app.com/help
-app.get('/help', (req, res) => {
-	res.send([
-		{
-			name: 'Andrew',
-			age: 27,
-		},
-		{
-			name: 'Sarah',
-			age: 33,
-		},
-	]);
-});
-
-// app.com/about
-app.get('/about', (req, res) => {
-	res.send('<h1>this is where the about page will reside</h1>');
 });
 
 // app.com/weather

@@ -6,6 +6,9 @@ const port = 3000;
 const publicDirectory = path.join(__dirname, '../public');
 
 // a single line to serve the directory, we add it after initiating express
+// this is a middleware it allows us to add stuff to our app
+// in this case we are adding static files
+// in a directory we just declared above
 app.use(express.static(publicDirectory)); // this method is a way to customize our server
 
 console.log(__dirname); // the path to my directory the file lives in

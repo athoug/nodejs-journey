@@ -4,6 +4,10 @@ body {
 	max-width: 650px;
 	margin: 0 auto;
 	padding: 0 16px;
+
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 header {
@@ -27,4 +31,12 @@ header nav a {
 	color: #888;
 	margin-right: 16px;
 	text-decoration: none;
+}
+
+img.about {
+	width: 550px;
+}
+
+.main-content {
+	flex-grow: 1;
 }

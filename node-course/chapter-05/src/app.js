@@ -52,6 +52,23 @@ app.get('/weather', (req, res) => {
 	});
 });
 
+app.get('/help/*', (req, res) => {
+	res.render('404', {
+		message: 'Help article not found',
+		title: '404',
+		name: 'Athoug',
+	});
+});
+
+// the fallout page for any route that doesn't exist
+app.get('*', (req, res) => {
+	res.render('404', {
+		message: 'Page not found',
+		title: '404',
+		name: 'Athoug',
+	});
+});
+
 // starting the server
 app.listen(port, () => {
 	console.log(`server is up on port ${port}`);

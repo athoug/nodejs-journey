@@ -45,10 +45,35 @@ app.get('/help', (req, res) => {
 
 // app.com/weather
 app.get('/weather', (req, res) => {
+	address = req.query.address;
+	if (!address) {
+		return res.send({
+			error: 'address must be provided',
+		});
+	}
+
 	res.send({
 		temp: 44,
+		address,
 		desc: 'the weather is super hot today',
 		location: 'Riyadh, Saudi Arabia',
+	});
+});
+
+// query is part of a url and usually comes after the ? sign
+// they come in a key=value pair
+// we can have multiple or none. if multiple, they are separated with an &
+// example: http://localhost:3000/products?search=games&rating=5
+app.get('/products', (req, res) => {
+	// we access the query string with req.query
+	if (!req.query.search) {
+		return res.send({
+			error: 'you must provide a search term',
+		});
+	}
+	console.log(req.query.search);
+	res.send({
+		products: [],
 	});
 });
 

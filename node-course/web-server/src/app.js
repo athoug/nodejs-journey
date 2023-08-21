@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
 
 const app = express();
 const port = 3000;
@@ -50,14 +52,29 @@ app.get('/weather', (req, res) => {
 		return res.send({
 			error: 'address must be provided',
 		});
-	}
+	} else {
+		geocode(address, (error, { lat, lng, location } = {}) => {
+			if (error) {
+				return res.send({
+					error,
+				});
+			}
 
-	res.send({
-		temp: 44,
-		address,
-		desc: 'the weather is super hot today',
-		location: 'Riyadh, Saudi Arabia',
-	});
+			forecast(lat, lng, (error, data) => {
+				if (error) {
+					return res.send({
+						error,
+					});
+				}
+
+				res.send({
+					address,
+					location,
+					forecast: data,
+				});
+			});
+		});
+	}
 });
 
 // query is part of a url and usually comes after the ? sign

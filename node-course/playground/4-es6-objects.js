@@ -22,8 +22,9 @@ const { label: productLabel, price, rating = 5 } = product;
 console.log('label:', productLabel, 'price: ', price);
 console.log('rating:', rating);
 
-const transaction = (type, { label }) => {
+const transaction = (type, { label = 'none' } = {}) => {
 	console.log('label', label);
 };
 
 transaction('order', product);
+transaction('order');

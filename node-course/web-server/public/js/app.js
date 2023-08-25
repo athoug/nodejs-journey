@@ -1,5 +1,3 @@
-console.log('client side javascript is loaded');
-
 // I'll be using a dummy fetch api https://dummyjson.com/
 // parameters are
 // 1. url

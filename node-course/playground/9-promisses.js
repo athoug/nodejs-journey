@@ -12,3 +12,13 @@ doWorkPromise
 	.catch((error) => {
 		console.error('Error:', error);
 	});
+
+//
+//
+//                                        fulfilled
+//                                     /
+//     promise         -- pending -->
+//                                     \
+//                                        rejected
+//
+//

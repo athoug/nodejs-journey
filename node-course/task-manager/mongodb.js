@@ -23,39 +23,40 @@ async function main() {
 	const users = db.collection('users');
 	const tasks = db.collection('tasks');
 
-	// +++++++++++  READING DATA  +++++++++++
+	// +++++++++++  UPDATING DATA  +++++++++++
 
-	// ---------- find one  ----------
-	const adwa = await users.findOne({ name: 'adwa' });
-	console.log(adwa);
+	// ---------- update one  ----------
+	users
+		.updateOne(
+			{ _id: new mongodb.ObjectId('6501a4843a92f227d8543708') },
+			{
+				// $set: { name: 'mike' },
+				// $inc: { age: 1 },
+			}
+		)
+		.then((result) => {
+			console.log(result);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 
-	const byId = await users.findOne({
-		_id: new mongodb.ObjectId('6501b04fe9b719a2a462eda9'),
-	});
-	console.log(byId);
-
-	// ---------- find  ----------
-	const age30 = await users.find({ age: 33 }).toArray();
-	console.log(age30);
-
-	const age30count = await users.find({ age: 33 }).count();
-	console.log(age30count);
+	// ---------- update many  ----------
 
 	// ---------- Challenge ----------
-	//  goal:use find and findOne with tasks
+	//  goal: use updateMany to complete all tasks
 	//
-	// 1 use findOne to fetch teh last task by id (print doc to console)
-	// 2. use find to fetch all tasks that are not completed (print docs to console)
-	// 3.test your work
+	// 1. check the documentation for updateMany
+	// 2. setup the call with the query and the updates
+	// 3. use promise methods to setup the success/error handlers
+	// 4. test your work
 
-	const youtube = await tasks.findOne({
-		_id: new mongodb.ObjectId('6501a924ba855c7c7f110ede'),
-	});
-	console.log(youtube);
-
-	const unfinished = await tasks.find({ completed: false }).toArray();
-	console.log(unfinished);
-
+	tasks
+		.updateMany({ completed: false }, { $set: { completed: true } })
+		.then((result) => console.log(result))
+		.catch((error) => {
+			console.log(error);
+		});
 	return 'done.';
 }
 

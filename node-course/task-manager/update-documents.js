@@ -23,30 +23,40 @@ async function main() {
 	const users = db.collection('users');
 	const tasks = db.collection('tasks');
 
-	// +++++++++++  DELETE DATA  +++++++++++
+	// +++++++++++  UPDATING DATA  +++++++++++
 
-	// ---------- delete one  ----------
-
-	// ---------- delete many  ----------
+	// ---------- update one  ----------
 	users
-		.deleteMany({ age: 28 })
-		.then((result) => console.log(result))
-		.catch((error) => console.error(error));
+		.updateOne(
+			{ _id: new mongodb.ObjectId('6501a4843a92f227d8543708') },
+			{
+				// $set: { name: 'mike' },
+				// $inc: { age: 1 },
+			}
+		)
+		.then((result) => {
+			console.log(result);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+
+	// ---------- update many  ----------
+
 	// ---------- Challenge ----------
-	//  goal: use delete one to delete one tasks
+	//  goal: use updateMany to complete all tasks
 	//
-	// 1. grab the description of the task you want to remove
-	// 2. setup the call with the query
+	// 1. check the documentation for updateMany
+	// 2. setup the call with the query and the updates
 	// 3. use promise methods to setup the success/error handlers
 	// 4. test your work
 
 	tasks
-		.deleteOne({
-			description: 'Oud class',
-		})
+		.updateMany({ completed: false }, { $set: { completed: true } })
 		.then((result) => console.log(result))
-		.catch((error) => console.error(error));
-
+		.catch((error) => {
+			console.log(error);
+		});
 	return 'done.';
 }
 

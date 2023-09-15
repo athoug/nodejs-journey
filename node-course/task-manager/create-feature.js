@@ -40,10 +40,10 @@ async function main() {
 	// });
 
 	// ---------- insert many ----------
-	// db.collection('users').insertMany([
-	// 	{ name: 'adwa', age: 32 },
-	// 	{ name: 'shahla', age: 28 },
-	// ]);
+	db.collection('users').insertMany([
+		{ name: 'adwa', age: 32 },
+		{ name: 'shahla', age: 28 },
+	]);
 
 	// ---------- Challenge ----------
 	//  goal: inserting 3 new tasks to a new tasks collection
